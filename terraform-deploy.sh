@@ -14,9 +14,9 @@ TF_PROJECT_NAME=$(echo $TF_WORKDIR | awk -F "/" '{print $NF}')
 TF_STATE_DIR=tf-state/$TF_PROJECT_ENV
 TF_VARIABLES_PATH=variables/$TF_PROJECT_ENV.tfvars
 
-[ ! $TF_WORKDIR ] && read -p "Enter the path: " TF_WORKDIR
-[ ! -d "$ROOT_DIR/$TF_WORKDIR" ] && echo "EXIT: $TF_WORKDIR not found." && exit 1;
-[ ! $TF_PROJECT_ENV ] && read -p "Enter the path: " TF_PROJECT_ENV
+[ ! -d "$ROOT_DIR/$TF_WORKDIR" ] && echo "error: $TF_WORKDIR not found." && exit 1;
+[ ! $TF_WORKDIR ] && read -p "Enter the path(TF_WORKDIR) ex ./terraform-deploy.sh prod global/test: " TF_WORKDIR
+[ ! $TF_PROJECT_ENV ] && read -p "Enter the path(TF_PROJECT_ENV) ex ./terraform-deploy.sh prod global/test: " TF_PROJECT_ENV
 
 
 echo "Setting WORKING DIRECTORY..."
